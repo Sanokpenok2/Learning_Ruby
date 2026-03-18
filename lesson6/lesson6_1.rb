@@ -22,6 +22,7 @@ class User
       end
 
     return answer
+
   end
 end
 
