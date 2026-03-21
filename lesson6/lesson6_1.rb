@@ -11,18 +11,8 @@ class User
 
   private
 
-  def say_my_name
-    who = gets.chomp
-
-    answer =
-      if who == "Heisenberg"
-        "You're goddamn right"
-      else
-        "What are say Pinkman!"
-      end
-
-    return answer
-
+  def divide(a, b)
+    a / b
   end
 end
 

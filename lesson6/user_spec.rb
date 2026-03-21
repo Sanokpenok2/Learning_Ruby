@@ -30,19 +30,26 @@ RSpec.describe User do
     end
   end
 
-  describe ".say_my_name" do
-    subject { User.new.send(:say_my_name) }
+  describe ".divide" do
+    subject { User.new.send(:divide, a, b) }
 
-    before { allow_any_instance_of(Kernel).to receive(:gets).and_return(name) }
-
-    context "When name is 'Heisenberg'" do
-      let(:name) { "Heisenberg" }
+    context "When everything is fine" do
+      let(:a) { 25 }
+      let(:b) { 5 }
 
       it "Goddamn right" do
-        expect{subject}.to eq "You're goddamn right"
+        expect(subject).to eq 5
       end
     end
 
+    context "When b is 0" do
+      let(:a) { 25 }
+      let(:b) { 0 }
+
+      it "returns error" do
+        expect { subject }.to raise_error(ZeroDivisionError)
+      end
+    end
 
   end
 end
